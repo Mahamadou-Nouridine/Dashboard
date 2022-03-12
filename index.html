@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="editor.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="essai.css" rel="stylesheet">
+    <script src="essai.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="external/jquery.hotkeys.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="external/google-code-prettify/prettify.js"></script>
+    <meta name="keywords" content="opensource rich wysiwyg text editor jquery bootstrap execCommand html5" />
+    <meta name="description" content="This tiny jQuery Bootstrap WYSIWYG plugin turns any DIV into a HTML5 rich text editor" />
+    <link rel="shortcut icon" href="http://mindmup.s3.amazonaws.com/lib/img/favicon.ico" >
+    <link href="external/google-code-prettify/prettify.css" rel="stylesheet">
+   
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <title>Dasboardt</title>
+</head>
+<body>
+    <div class="container-fluid">
+    <div class="row justify-content-center bg-dark">
+        <div class="row " style="width: 1000px;">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white" href="index.html">AdminBoard</a>
+                    <p class="navbar-toggler" type="p" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </p>
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white active" aria-current="page" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="post.html">Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white " href="categorie.html">Catégories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white " href="utilisateur.html">Utilisateurs</a>
+                        </li>
+                        </ul>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="p" data-bs-toggle="dropdown" aria-expanded="false">
+                                <svg xmlns="http://www.wmax-3.org/250px0/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                </svg> Bienvenue Dino
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="profil.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                              </svg> Profil</a></li>
+                            <li><a class="dropdown-item" href="parametre.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                              </svg> Parametres</a></li>
+                            
+                            </ul>
+                        </div>
+                        <div class="nav-item ">
+                            <a class="nav-link text-white " href="log-out.html">
+                                <svg xmlns="http://www.wmax-3.org/250px0/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                </svg>Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </nav>
+        </div>
+    </div>
+    <div class="row justify-content-center bg-primary">
+        <div class="row " style="max-width: 1000px;">
+            <h1><svg xmlns="http://www.wmax-3.org/250px0/svg" width="40" height="40" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+              </svg>Dashboard</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="row  d-flex "style="max-width: 1000px;" >
+            <div class="row " >
+                <div class="col col-md-4 col-12 mt-2" >
+                    <p class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#premier" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg> Ajouter un post</p>
+                </div>
+                <div class="modal fade" tabindex="-1" id="premier" aria-labelledby="post" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="post">Ajouter un post</h5>
+                                <button class="btn-close" type="button" aria-label="close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="post">
+                                    <div>
+                                        <label for="titre" class="form-label">Titre</label>
+                                        <input type="text" name="titre" class="form-control">
+                                    </div>
+                                    <div>
+                                        <label for="categorie" class="form-label">Titre</label>
+                                        <select name="categorie" id="" class="form-select">
+                                            <option value="1">Web developpement</option>
+                                            <option value="2">Tech gadgets</option>
+                                            <option value="3">Business</option>
+                                            <option value="4">Health and welness</option>
+                                        </select>
+                                    </div>
+                                </form>
+                               
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secontary" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" >Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4 col-12 mt-2" >
+                    <p class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#deuxieme"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>  Ajouter une catégorie</p>
+                </div>
+                <div class="modal fade" id="deuxieme" aria-labelledby="categorie" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success">
+                                <h5 class="modal-title">Catégorie</h5>
+                                <button class="btn-close" aria-label="close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn  btn-secondary" data-bs-dismiss="modal">close</button>
+                                <button class="btn btn-primary">save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4 col-12 mt-2 " >
+                    <p class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#troixieme"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>  Ajouter un utilisateur</p>
+                </div>
+                <div class="modal fade" id="troixieme" aria-labelledby="utilisateur" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="utilisateur">Utilisateur</h5>
+                                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="post">
+                                    <div>
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div>
+                                        <label for="password" class="form-label">Pasword</label>
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div>
+                                        <label for="confirm" class="form-label">Confirm password</label>
+                                        <input type="password" class="form-control">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" >Save changes</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-12 col-md-8">
+                    <h2 class="bg-light p-2">Les posts les plus recents</h2>
+                    <table class="table table-striped"  >
+                        <thead class="bg-black text-white">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">titre</th>
+                                <th scope="col">Catégories</th>
+                                <th scope="col">Date du post</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                                <th scope="col">1</th>
+                                <td>Post One</td>
+                                <td>Web Developpement</td>
+                                <td>octobre 12, 2019</td>
+                                <td> <a href="post-n.html"> <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> Détail</button></a>
+                                </td>
+                           </tr> 
+                           <tr>
+                                <th scope="col">2</th>
+                                <td>Post Two</td>
+                                <td>Tech Gadget</td>
+                                <td>octobre 12, 2019</td>
+                                <td>  <a href="post-n.html"> <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> Détail</button></a>
+                                </td>
+                           </tr> 
+                           <tr>
+                                <th scope="col">3</th>
+                                <td>Post Three</td>
+                                <td>Web Developpement</td>
+                                <td>octobre 12, 2019</td>
+                                <td>  <a href="post-n.html"> <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> Détail</button></a>
+                                </td>
+                           </tr> 
+                           <tr>
+                                <th scope="col">5</th>
+                                <td>Post Four</td>
+                                <td>usiness</td>
+                                <td>octobre 12, 2019</td>
+                                <td>  <a href="post-n.html"> <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> Détail</button></a>
+                                </td>
+                           </tr> 
+                           <tr>
+                                <th scope="col">5</th>
+                                <td>Post One</td>
+                                <td>Web Developpement</td>
+                                <td>octobre 12, 2019</td>
+                                <td>  <a href="post-n.html"> <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> Détail</button></a>
+                                </td>
+                           </tr> 
+                           <tr>
+                                <th scope="col">6</th>
+                                <td>Post Six</td>
+                                <td>Health and wellness</td>
+                                <td>octobre 12, 2019</td>
+                                <td>  <a href="post-n.html"> <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg> Détail</button></a>
+                                </td>
+                           </tr> 
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <div class="col col-md-4 col-12 text-center justify-content-end ">
+                    <div class=" bg-primary m-2 p-2" style="width:300px">
+                        <h2>post</h2>
+                        <p class=" fs-1" ><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                          </svg>6</p>
+                          <button class="btn bnt-white border-white text-white m-1">View</button>
+                    </div>
+                    <div class="bg-success m-2 p-2" style="width:300px">
+                        <h2>post</h2>
+                        <p class=" fs-1"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-folder2-open" viewBox="0 0 16 16">
+                            <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14V3.5zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5V6zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7H1.633z"/>
+                          </svg>4</p>
+                          <button class="btn bnt-white border-white text-white m-1">View</button>
+                    </div>
+                    <div class="bg-warning m-2 p-2" style="width:300px">
+                        <h2>post</h2>
+                        <p class=" fs-1"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                          </svg>13</p>
+                          <button class="btn bnt-white border-white text-white m-1">View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+      function initToolbarBootstrapBindings() {
+        var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
+              'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+              'Times New Roman', 'Verdana'],
+              fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+        $.each(fonts, function (idx, fontName) {
+            fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
+        });
+        $('a[title]').tooltip({container:'body'});
+          $('.dropdown-menu input').click(function() {return false;})
+              .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
+          .keydown('esc', function () {this.value='';$(this).change();});
+  
+        $('[data-role=magic-overlay]').each(function () { 
+          var overlay = $(this), target = $(overlay.data('target')); 
+          overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+        });
+        if ("onwebkitspeechchange"  in document.createElement("input")) {
+          var editorOffset = $('#editor').offset();
+          $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+        } else {
+          $('#voiceBtn').hide();
+        }
+      };
+      function showErrorAlert (reason, detail) {
+          var msg='';
+          if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+          else {
+              console.log("error uploading file", reason, detail);
+          }
+          $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
+           '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+      };
+      initToolbarBootstrapBindings();  
+      $('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
+      window.prettyPrint && prettyPrint();
+    });
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-37452180-6', 'github.io');
+    ga('send', 'pageview');
+  </script>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+   </script>
+  
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</body>
+</html>
